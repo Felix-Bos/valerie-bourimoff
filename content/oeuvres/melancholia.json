@@ -1,0 +1,10 @@
+{
+  "image": "medias/oeuvres/melancholia.webp",
+  "titre": "Melancholia",
+  "technique": "Acrylique",
+  "dimensions": "65 × 92 cm",
+  "annee": "2012",
+  "categorie": "peinture",
+  "chapitre": "content/chapitres/2012.json",
+  "ordre": 11
+}

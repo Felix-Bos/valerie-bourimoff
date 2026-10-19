@@ -1,0 +1,10 @@
+{
+  "image": "medias/oeuvres/samourai.webp",
+  "titre": "Samouraï",
+  "technique": "Acrylique",
+  "dimensions": "40 × 40 cm",
+  "annee": "2012",
+  "categorie": "peinture",
+  "chapitre": "content/chapitres/2012.json",
+  "ordre": 14
+}

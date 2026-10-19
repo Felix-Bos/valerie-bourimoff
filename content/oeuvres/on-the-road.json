@@ -1,0 +1,10 @@
+{
+  "image": "medias/oeuvres/on-the-road.webp",
+  "titre": "On the road",
+  "technique": "Acrylique",
+  "dimensions": "50 × 50 cm",
+  "annee": "2015",
+  "categorie": "peinture",
+  "chapitre": "content/chapitres/2015.json",
+  "ordre": 12
+}

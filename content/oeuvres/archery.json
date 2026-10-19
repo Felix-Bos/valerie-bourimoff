@@ -1,0 +1,10 @@
+{
+  "image": "medias/oeuvres/archery.webp",
+  "titre": "Archery",
+  "technique": "Fusain",
+  "dimensions": "",
+  "annee": "",
+  "categorie": "dessin",
+  "chapitre": "content/chapitres/dessins.json",
+  "ordre": 5
+}

@@ -1,0 +1,10 @@
+{
+  "image": "medias/oeuvres/nature.webp",
+  "titre": "Nature",
+  "technique": "Acrylique",
+  "dimensions": "46 × 38 cm",
+  "annee": "2012",
+  "categorie": "peinture",
+  "chapitre": "content/chapitres/2012.json",
+  "ordre": 1
+}

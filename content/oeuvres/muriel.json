@@ -1,0 +1,10 @@
+{
+  "image": "medias/oeuvres/muriel.webp",
+  "titre": "Muriel",
+  "technique": "Fusain",
+  "dimensions": "",
+  "annee": "",
+  "categorie": "dessin",
+  "chapitre": "content/chapitres/dessins.json",
+  "ordre": 12
+}

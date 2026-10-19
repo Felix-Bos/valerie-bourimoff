@@ -1,0 +1,32 @@
+{
+  "ouverture": [
+    "content/oeuvres/changes.json",
+    "content/oeuvres/beatitude.json",
+    "content/oeuvres/aquarelle-2019-02.json",
+    "content/oeuvres/jt20hf2.json"
+  ],
+  "selection": [
+    "content/oeuvres/changes.json",
+    "content/oeuvres/beatitude.json",
+    "content/oeuvres/warm-feelings.json",
+    "content/oeuvres/secretly.json",
+    "content/oeuvres/jt20hf2.json",
+    "content/oeuvres/samba.json",
+    "content/oeuvres/glowing-red.json",
+    "content/oeuvres/you-make-me-happy.json",
+    "content/oeuvres/asian-swarmings.json",
+    "content/oeuvres/dubai-i.json",
+    "content/oeuvres/garden-of-eden.json"
+  ],
+  "lieux": [
+    "Galerie Nikki Marquadt, Paris",
+    "Milly-la-Forêt",
+    "Galerie Artitude, Malte",
+    "Salon des Arts de Vaucresson",
+    "Hôtel de Ville de Boulogne-Billancourt",
+    "Galerie d'Agesseau",
+    "Étampes",
+    "Salon des Artistes de Suresnes",
+    "Salon de Ballancourt"
+  ]
+}

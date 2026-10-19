@@ -1,0 +1,10 @@
+{
+  "image": "medias/oeuvres/fresh.webp",
+  "titre": "Fresh",
+  "technique": "",
+  "dimensions": "30 × 90 cm",
+  "annee": "2009",
+  "categorie": "peinture",
+  "chapitre": "content/chapitres/2009.json",
+  "ordre": 2
+}

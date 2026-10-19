@@ -6,9 +6,9 @@
 
   /* ---------- Configuration ---------- */
 
+  // L'adresse e-mail de l'artiste se règle dans Pages CMS (Réglages) : le formulaire
+  // ouvre alors la messagerie du visiteur, pré-remplie.
   var CONFIG = {
-    // Adresse e-mail de l'artiste : le formulaire ouvre la messagerie du visiteur, pré-remplie.
-    contactEmail: '',
     // Optionnel : URL d'un service d'envoi de formulaire (ex. https://formspree.io/f/xxxxxx).
     // Si elle est renseignée, le message est envoyé directement depuis la page.
     contactEndpoint: ''
@@ -28,6 +28,10 @@
   var DATA = window.VB_DATA || { chapters: [], works: [], selection: [] };
   var WORKS = {};
   DATA.works.forEach(function (w) { WORKS[w.id] = w; });
+  // Encodée dans data.js pour ne pas être lue en clair par les robots.
+  var contactEmail = (function () {
+    try { return atob((DATA.settings || {}).contact || ''); } catch (e) { return ''; }
+  })();
 
   var store = {
     get: function (k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } },
@@ -750,8 +754,8 @@
           })
           .catch(function () { say('L\'envoi a échoué. Merci de réessayer dans un instant.', true); })
           .then(function () { btn.disabled = false; });
-      } else if (CONFIG.contactEmail) {
-        location.href = 'mailto:' + CONFIG.contactEmail +
+      } else if (contactEmail) {
+        location.href = 'mailto:' + contactEmail +
           '?subject=' + encodeURIComponent(data.get('sujet') + ' — ' + name) +
           '&body=' + encodeURIComponent(lines.join('\n'));
         say('Votre messagerie va s\'ouvrir avec le message pré-rempli.');

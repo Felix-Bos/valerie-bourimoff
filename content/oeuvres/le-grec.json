@@ -1,0 +1,10 @@
+{
+  "image": "medias/oeuvres/le-grec.webp",
+  "titre": "Le grec",
+  "technique": "Crayon",
+  "dimensions": "",
+  "annee": "",
+  "categorie": "dessin",
+  "chapitre": "content/chapitres/dessins.json",
+  "ordre": 10
+}

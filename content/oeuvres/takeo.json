@@ -1,0 +1,10 @@
+{
+  "image": "medias/oeuvres/takeo.webp",
+  "titre": "Takeo",
+  "technique": "Fusain",
+  "dimensions": "50 × 65 cm",
+  "annee": "2015",
+  "categorie": "dessin",
+  "chapitre": "content/chapitres/2015.json",
+  "ordre": 8
+}
