@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Contact — Valérie Bourimoff</title>
+  <meta name="description" content="Contacter Valérie Bourimoff pour une acquisition, une exposition ou une information sur une œuvre.">
+  <meta name="theme-color" content="#f3eee6">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Valérie Bourimoff">
+  <meta property="og:title" content="Contact — Valérie Bourimoff">
+  <meta property="og:description" content="Contacter Valérie Bourimoff pour une acquisition, une exposition ou une information sur une œuvre.">
+  <meta property="og:image" content="assets/img/site/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function (h) {
+      h.classList.remove('no-js'); h.classList.add('js');
+      try { if (sessionStorage.getItem('vb-nav')) { h.classList.add('is-entering'); sessionStorage.removeItem('vb-nav'); } } catch (e) {}
+      setTimeout(function () { h.classList.remove('is-entering'); }, 4000);
+    })(document.documentElement);
+  </script>
+</head>
+<body data-page="contact">
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html" aria-label="Valérie Bourimoff, accueil"><span class="brand__first">Valérie</span> <span class="brand__last">Bourimoff</span></a>
+    <nav class="nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="oeuvres.html"><span class="roll" data-text="Œuvres"><span>Œuvres</span></span></a></li>
+        <li><a href="oeuvres.html#chapitre-dessins"><span class="roll" data-text="Dessins"><span>Dessins</span></span></a></li>
+        <li><a href="biographie.html"><span class="roll" data-text="Biographie"><span>Biographie</span></span></a></li>
+        <li><a href="contact.html" aria-current="page"><span class="roll" data-text="Contact"><span>Contact</span></span></a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn__label">Menu</span><span class="menu-btn__lines" aria-hidden="true"></span></button>
+  </header>
+
+  <div class="menu" id="menu" data-dark inert>
+    <ul class="menu__links">
+      <li><a href="index.html"><small>01</small>Accueil</a></li>
+      <li><a href="oeuvres.html"><small>02</small>Œuvres</a></li>
+      <li><a href="oeuvres.html#chapitre-dessins"><small>03</small>Dessins</a></li>
+      <li><a href="biographie.html"><small>04</small>Biographie</a></li>
+      <li><a href="contact.html" aria-current="page"><small>05</small>Contact</a></li>
+    </ul>
+    <div class="menu__foot"><p>Par là où tout commence…</p><span>Peinture · Aquarelle · Dessin</span></div>
+  </div>
+
+  <main id="contenu">
+    <section class="page-hero">
+      <div class="pigments" aria-hidden="true"><span></span><span></span><span></span></div>
+      <span class="eyebrow" data-reveal>Contact</span>
+      <h1 class="page-hero__title split" data-split style="margin-top:24px">Écrire à <em>l'artiste</em></h1>
+    </section>
+
+    <div class="contact">
+      <aside class="contact__aside">
+        <p class="lead" data-reveal>Une toile vous a touché, vous souhaitez l'acquérir, l'exposer ou simplement en savoir plus&nbsp;?</p>
+        <p data-reveal>Laissez un message&nbsp;: Valérie Bourimoff vous répondra personnellement.</p>
+        <ul class="contact__info">
+          <li data-reveal><small>Acquisitions</small><span>Renseignements sur les œuvres disponibles</span></li>
+          <li data-reveal><small>Expositions</small><span>Galeries, salons, collaborations</span></li>
+          <li data-reveal><small>Rencontres</small><span>Portes Ouvertes d'Ateliers de Boulogne-Billancourt</span></li>
+        </ul>
+      </aside>
+
+      <form class="form" data-contact-form novalidate data-reveal>
+        <div class="ask-card" aria-live="polite">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+          <div><small>Œuvre concernée</small><strong></strong><span></span></div>
+        </div>
+        <div class="form__row">
+          <div class="field">
+            <input id="f-nom" name="nom" type="text" autocomplete="name" placeholder=" " required>
+            <label for="f-nom">Nom *</label>
+            <span class="field__line"></span>
+          </div>
+          <div class="field">
+            <input id="f-email" name="email" type="email" autocomplete="email" placeholder=" " required>
+            <label for="f-email">E-mail *</label>
+            <span class="field__line"></span>
+          </div>
+        </div>
+        <div class="field field--select">
+          <select id="f-sujet" name="sujet">
+            <option>Acquisition ou information sur une œuvre</option>
+            <option>Exposition, collaboration</option>
+            <option>Autre demande</option>
+          </select>
+          <label for="f-sujet">Sujet</label>
+          <span class="field__line"></span>
+        </div>
+        <input type="hidden" name="oeuvre" value="">
+        <div class="field">
+          <textarea id="f-message" name="message" rows="6" placeholder=" " required></textarea>
+          <label for="f-message">Message *</label>
+          <span class="field__line"></span>
+        </div>
+        <div class="hp" aria-hidden="true"><label>Ne pas remplir <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+        <div class="form__foot">
+          <small>* Champs obligatoires. Vos informations servent uniquement à vous répondre.</small>
+          <button class="btn" type="submit">Envoyer <span aria-hidden="true">→</span></button>
+        </div>
+        <p class="form__status" role="status"></p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer" data-dark>
+    <div class="footer__top">
+      <p class="footer__quote">Par là où tout commence…<em>This is where it all starts from…</em></p>
+      <a class="btn-round btn-round--light" href="contact.html" data-magnetic>Écrire à<br>l'artiste</a>
+    </div>
+    <div class="footer__grid">
+      <div>
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="oeuvres.html">Œuvres</a></li>
+          <li><a href="oeuvres.html#chapitre-dessins">Dessins</a></li>
+          <li><a href="biographie.html">Biographie</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Chapitres récents</h3>
+        <ul>
+          <li><a href="oeuvres.html#chapitre-2020">2020 — De retour</a></li>
+          <li><a href="oeuvres.html#chapitre-2019">2019 — Je m'amuse tellement avec toi&nbsp;!</a></li>
+          <li><a href="oeuvres.html#chapitre-2017">2017 — Coup de foudre pour l'aquarelle</a></li>
+          <li><a href="oeuvres.html#chapitre-2015">2015 — Acte II, scène I</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Droits</h3>
+        <p>© Photos non libres de droits. Adaptation, reproduction et diffusion strictement interdites du contenu du site sans l'accord écrit préalable de Valérie Bourimoff.</p>
+      </div>
+    </div>
+    <div class="footer__name" aria-hidden="true">Bourimoff</div>
+    <div class="footer__bottom"><span>© <span data-year>2026</span> Valérie Bourimoff</span><span>Peinture · Aquarelle · Dessin</span></div>
+  </footer>
+
+  <div class="curtain" aria-hidden="true"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/lightbox.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
