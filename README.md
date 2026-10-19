@@ -1,12 +1,12 @@
 # Valérie Bourimoff — site de peintre
 
-Site statique (HTML / CSS / JavaScript), publié sur GitHub Pages : https://felix-bos.github.io/Peintre_portfolio/
+Site statique (HTML / CSS / JavaScript), publié sur GitHub Pages : https://felix-bos.github.io/valerie-bourimoff/
 
 Les contenus (œuvres, chapitres, accueil, biographie, adresse de contact) se modifient sans toucher au code, depuis [Pages CMS](https://app.pagescms.org).
 
 ## Modifier le site (Pages CMS)
 
-1. Se connecter sur https://app.pagescms.org et ouvrir le dépôt `Peintre_portfolio`.
+1. Se connecter sur https://app.pagescms.org et ouvrir le dépôt `valerie-bourimoff`.
 2. Menus disponibles :
    - **Œuvres** : une fiche par œuvre (photo, titre, technique, dimensions, année, catégorie, chapitre, position).
    - **Chapitres** : les périodes et séries de la page Œuvres. Pour une nouvelle année, créer le chapitre avant d'y ajouter des œuvres.
