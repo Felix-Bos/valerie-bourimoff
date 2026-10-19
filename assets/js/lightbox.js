@@ -106,7 +106,7 @@ window.VBLightbox = (function () {
   function makeImg(w) {
     var img = new Image();
     img.className = 'lb__img';
-    img.alt = w.title + (w.medium ? ', ' + w.medium.toLowerCase() : '') + (w.year ? ', ' + w.year : '');
+    img.alt = [w.title, w.medium && (w.title ? w.medium.toLowerCase() : w.medium), w.year].filter(Boolean).join(', ');
     img.draggable = false;
     img.setAttribute('data-cursor', 'Zoom');
     stage.appendChild(img);
@@ -135,6 +135,7 @@ window.VBLightbox = (function () {
 
   function updateInfo(w) {
     titleEl.textContent = w.title;
+    titleEl.hidden = !w.title;
     metaEl.textContent = meta(w);
     countEl.innerHTML = '<b>' + pad(index + 1) + '</b> / ' + pad(list.length);
     askEl.href = 'contact.html?oeuvre=' + encodeURIComponent(w.id);
@@ -293,6 +294,7 @@ window.VBLightbox = (function () {
     zoomBtn.setAttribute('aria-label', on ? 'Réduire' : 'Zoomer');
     var el = current.el, f = el._fit;
     el.setAttribute('data-cursor', on ? 'Réduire' : 'Zoom');
+    document.dispatchEvent(new Event('vb:cursor'));
     if (on) {
       var r = stageRect();
       pan.x = (r.width - f.w * zoomLevel) / 2;

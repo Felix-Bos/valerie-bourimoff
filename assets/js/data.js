@@ -17,10 +17,10 @@ window.VB_DATA = {
     "that-s-what-love-is",
     "come-around-me",
     "available",
-    "sans-titre-2020-10",
-    "sans-titre-2020-11",
-    "sans-titre-2020-12",
-    "sans-titre-2020-13"
+    "fusain-2020-10",
+    "fusain-2020-11",
+    "fusain-2020-12",
+    "fusain-2020-13"
    ]
   },
   {
@@ -31,15 +31,15 @@ window.VB_DATA = {
    "intro": null,
    "works": [
     "les-fleurs-de-cerisiers",
-    "sans-titre-2019-02",
-    "sans-titre-2019-03",
-    "sans-titre-2019-04",
-    "sans-titre-2019-05",
-    "sans-titre-2019-06",
-    "sans-titre-2019-07",
-    "sans-titre-2019-08",
-    "sans-titre-2019-09",
-    "sans-titre-2019-10"
+    "aquarelle-2019-02",
+    "aquarelle-2019-03",
+    "aquarelle-2019-04",
+    "aquarelle-2019-05",
+    "aquarelle-2019-06",
+    "aquarelle-2019-07",
+    "aquarelle-2019-08",
+    "aquarelle-2019-09",
+    "aquarelle-2019-10"
    ]
   },
   {
@@ -315,8 +315,8 @@ window.VB_DATA = {
    "featured": false
   },
   {
-   "id": "sans-titre-2020-10",
-   "title": "Sans titre",
+   "id": "fusain-2020-10",
+   "title": "",
    "medium": "Fusain",
    "size": null,
    "year": "2020",
@@ -328,8 +328,8 @@ window.VB_DATA = {
    "featured": false
   },
   {
-   "id": "sans-titre-2020-11",
-   "title": "Sans titre",
+   "id": "fusain-2020-11",
+   "title": "",
    "medium": "Fusain",
    "size": null,
    "year": "2020",
@@ -341,8 +341,8 @@ window.VB_DATA = {
    "featured": false
   },
   {
-   "id": "sans-titre-2020-12",
-   "title": "Sans titre",
+   "id": "fusain-2020-12",
+   "title": "",
    "medium": "Fusain",
    "size": null,
    "year": "2020",
@@ -354,8 +354,8 @@ window.VB_DATA = {
    "featured": false
   },
   {
-   "id": "sans-titre-2020-13",
-   "title": "Sans titre",
+   "id": "fusain-2020-13",
+   "title": "",
    "medium": "Fusain",
    "size": null,
    "year": "2020",
@@ -380,8 +380,8 @@ window.VB_DATA = {
    "featured": true
   },
   {
-   "id": "sans-titre-2019-02",
-   "title": "Sans titre",
+   "id": "aquarelle-2019-02",
+   "title": "",
    "medium": "Aquarelle",
    "size": null,
    "year": "2019",
@@ -393,8 +393,8 @@ window.VB_DATA = {
    "featured": false
   },
   {
-   "id": "sans-titre-2019-03",
-   "title": "Sans titre",
+   "id": "aquarelle-2019-03",
+   "title": "",
    "medium": "Aquarelle",
    "size": null,
    "year": "2019",
@@ -406,8 +406,8 @@ window.VB_DATA = {
    "featured": false
   },
   {
-   "id": "sans-titre-2019-04",
-   "title": "Sans titre",
+   "id": "aquarelle-2019-04",
+   "title": "",
    "medium": "Aquarelle",
    "size": null,
    "year": "2019",
@@ -419,8 +419,8 @@ window.VB_DATA = {
    "featured": false
   },
   {
-   "id": "sans-titre-2019-05",
-   "title": "Sans titre",
+   "id": "aquarelle-2019-05",
+   "title": "",
    "medium": "Aquarelle",
    "size": null,
    "year": "2019",
@@ -432,8 +432,8 @@ window.VB_DATA = {
    "featured": false
   },
   {
-   "id": "sans-titre-2019-06",
-   "title": "Sans titre",
+   "id": "aquarelle-2019-06",
+   "title": "",
    "medium": "Aquarelle",
    "size": null,
    "year": "2019",
@@ -445,8 +445,8 @@ window.VB_DATA = {
    "featured": false
   },
   {
-   "id": "sans-titre-2019-07",
-   "title": "Sans titre",
+   "id": "aquarelle-2019-07",
+   "title": "",
    "medium": "Aquarelle",
    "size": null,
    "year": "2019",
@@ -458,8 +458,8 @@ window.VB_DATA = {
    "featured": false
   },
   {
-   "id": "sans-titre-2019-08",
-   "title": "Sans titre",
+   "id": "aquarelle-2019-08",
+   "title": "",
    "medium": "Aquarelle",
    "size": null,
    "year": "2019",
@@ -471,8 +471,8 @@ window.VB_DATA = {
    "featured": false
   },
   {
-   "id": "sans-titre-2019-09",
-   "title": "Sans titre",
+   "id": "aquarelle-2019-09",
+   "title": "",
    "medium": "Aquarelle",
    "size": null,
    "year": "2019",
@@ -484,8 +484,8 @@ window.VB_DATA = {
    "featured": false
   },
   {
-   "id": "sans-titre-2019-10",
-   "title": "Sans titre",
+   "id": "aquarelle-2019-10",
+   "title": "",
    "medium": "Aquarelle",
    "size": null,
    "year": "2019",

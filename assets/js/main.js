@@ -38,7 +38,11 @@
   var esc = function (s) {
     return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
   };
-  var altOf = function (w) { return w.title + (w.medium ? ', ' + w.medium.toLowerCase() : '') + (w.year ? ', ' + w.year : ''); };
+  var altOf = function (w) {
+    var parts = [w.title, w.medium && (w.title ? w.medium.toLowerCase() : w.medium), w.year].filter(Boolean);
+    return parts.join(', ') || 'Œuvre de Valérie Bourimoff';
+  };
+  var openLabel = function (w) { return w.title ? 'Voir « ' + w.title + ' » en grand' : 'Voir l\'œuvre en grand (' + altOf(w) + ')'; };
 
   // Boucle d'animation unique
   var loops = [];
@@ -142,19 +146,26 @@
     document.body.appendChild(c);
     html.classList.add('has-cursor');
     var ring = $('.cursor__ring', c), dot = $('.cursor__dot', c), label = $('.cursor__label', c);
-    var mx = -100, my = -100, rx = -100, ry = -100, text = '';
+    var mx = -100, my = -100, rx = -100, ry = -100, text = '', last = null;
 
-    document.addEventListener('mousemove', function (e) {
-      mx = e.clientX; my = e.clientY;
-      c.classList.remove('is-hidden');
-      var t = e.target;
-      var lab = t.closest && t.closest('[data-cursor]');
+    function update(t) {
+      if (!t || !t.closest) return;
+      last = t;
+      var lab = t.closest('[data-cursor]');
       var next = lab ? lab.getAttribute('data-cursor') : '';
       if (next !== text) { text = next; label.textContent = next; }
       c.classList.toggle('is-label', !!next);
       c.classList.toggle('is-link', !next && !!(t.closest && t.closest('a, button, [data-cursor-link], label, select')));
       c.classList.toggle('is-light', !!(t.closest && t.closest('[data-dark]')));
+    }
+
+    document.addEventListener('mousemove', function (e) {
+      mx = e.clientX; my = e.clientY;
+      c.classList.remove('is-hidden');
+      update(e.target);
     }, { passive: true });
+    // Un libellé peut changer sans que la souris bouge (zoom de la visionneuse).
+    document.addEventListener('vb:cursor', function () { update(last); });
     document.addEventListener('mouseleave', function () { c.classList.add('is-hidden'); });
 
     loops.push(function () {
@@ -393,13 +404,13 @@
       b.className = 'card';
       b.setAttribute('data-work', w.id);
       b.setAttribute('data-cursor', 'Voir');
-      b.setAttribute('aria-label', 'Voir « ' + w.title + ' » en grand');
+      b.setAttribute('aria-label', openLabel(w));
       b.style.setProperty('--ar', (w.w / w.h).toFixed(4));
       b.style.setProperty('--c', w.color);
       b.innerHTML =
         '<span class="card__frame"><img src="' + thumb(w.id) + '" alt="' + esc(altOf(w)) + '" width="' + w.w + '" height="' + w.h + '" loading="lazy" decoding="async"></span>' +
         '<span class="card__cap"><span class="card__num">' + (i < 9 ? '0' : '') + (i + 1) + '</span>' +
-        '<span><span class="card__title">' + esc(w.title) + '</span><span class="card__meta">' + esc([w.medium, w.year].filter(Boolean).join(' · ')) + '</span></span></span>';
+        '<span>' + (w.title ? '<span class="card__title">' + esc(w.title) + '</span>' : '') + '<span class="card__meta">' + esc([w.medium, w.year].filter(Boolean).join(' · ')) + '</span></span></span>';
       track.insertBefore(b, end);
     });
     bindWorks(track, function () { return items; });
@@ -514,11 +525,11 @@
       b.className = 'work';
       b.setAttribute('data-work', w.id);
       b.setAttribute('data-cursor', 'Voir');
-      b.setAttribute('aria-label', 'Voir « ' + w.title + ' » en grand');
+      b.setAttribute('aria-label', openLabel(w));
       var metaLines = [w.medium, w.size].filter(Boolean).map(esc).join('<br>');
       b.innerHTML =
         '<span class="work__frame" style="--c:' + w.color + '"><img src="' + thumb(w.id) + '" alt="' + esc(altOf(w)) + '" width="' + w.w + '" height="' + w.h + '" loading="lazy" decoding="async"></span>' +
-        '<span class="work__cap"><span class="work__title">' + esc(w.title) + '</span>' + (metaLines ? '<span class="work__meta">' + metaLines + '</span>' : '') + '</span>';
+        '<span class="work__cap">' + (w.title ? '<span class="work__title">' + esc(w.title) + '</span>' : '') + (metaLines ? '<span class="work__meta">' + metaLines + '</span>' : '') + '</span>';
       var img = $('img', b);
       var loaded = function () { img.classList.add('is-loaded'); };
       if (img.complete && img.naturalWidth) loaded(); else img.addEventListener('load', loaded);
@@ -700,9 +711,11 @@
       var card = $('.ask-card', form);
       $('img', card).src = thumb(w.id);
       $('strong', card).textContent = w.title;
+      $('strong', card).hidden = !w.title;
       $('span', card).textContent = [w.medium, w.size, w.year].filter(Boolean).join(' · ');
       card.classList.add('is-visible');
-      workField.value = w.title + (w.year ? ' (' + w.year + ')' : '');
+      var page = new URL('oeuvres.html#oeuvre-' + w.id, location.href).href;
+      workField.value = [w.title, w.medium, w.year].filter(Boolean).join(', ') + ' — ' + page;
       subject.value = 'Acquisition ou information sur une œuvre';
     }
 
