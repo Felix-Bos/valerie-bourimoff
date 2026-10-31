@@ -51,7 +51,6 @@
     <nav class="nav" aria-label="Navigation principale">
       <ul>
         <li><a href="oeuvres.html"><span class="roll" data-text="Œuvres"><span>Œuvres</span></span></a></li>
-        <li><a href="oeuvres.html#chapitre-dessins"><span class="roll" data-text="Dessins"><span>Dessins</span></span></a></li>
         <li><a href="biographie.html"><span class="roll" data-text="Biographie"><span>Biographie</span></span></a></li>
         <li><a href="contact.html"><span class="roll" data-text="Contact"><span>Contact</span></span></a></li>
       </ul>
@@ -63,11 +62,10 @@
     <ul class="menu__links">
       <li><a href="index.html" aria-current="page"><small>01</small>Accueil</a></li>
       <li><a href="oeuvres.html"><small>02</small>Œuvres</a></li>
-      <li><a href="oeuvres.html#chapitre-dessins"><small>03</small>Dessins</a></li>
-      <li><a href="biographie.html"><small>04</small>Biographie</a></li>
-      <li><a href="contact.html"><small>05</small>Contact</a></li>
+      <li><a href="biographie.html"><small>03</small>Biographie</a></li>
+      <li><a href="contact.html"><small>04</small>Contact</a></li>
     </ul>
-    <div class="menu__foot"><p>Par là où tout commence…</p><span>Peinture · Aquarelle · Dessin</span></div>
+    <div class="menu__foot"><p><!--@site.devise-->Par là où tout commence…<!--/@site.devise--></p><span><!--@site.disciplines-->Peinture · Aquarelle · Dessin<!--/@site.disciplines--></span></div>
   </div>
 
   <main id="contenu">
@@ -100,19 +98,19 @@
       </div>
 
       <div class="hero__foot">
-        <p class="js-fade">Peinture · Aquarelle · Dessin<br><!--@total-texte-->Plus de cent œuvres<!--/@total-texte-->, de <!--@annee-debut-->2003<!--/@annee-debut--> à <!--@annee-fin-->2020<!--/@annee-fin--></p>
+        <p class="js-fade"><!--@site.disciplines-->Peinture · Aquarelle · Dessin<!--/@site.disciplines--><br><!--@total-texte-->Plus de cent œuvres<!--/@total-texte-->, de <!--@annee-debut-->2003<!--/@annee-debut--> à <!--@annee-fin-->2020<!--/@annee-fin--></p>
         <a class="scroll-cue js-fade" href="#manifeste">Défiler<i></i></a>
-        <p class="tagline js-fade">Par là où tout commence…<em>This is where it all starts from…</em></p>
+        <p class="tagline js-fade"><!--@site.devise-->Par là où tout commence…<!--/@site.devise--><em><!--@site.devise_en-->This is where it all starts from…<!--/@site.devise_en--></em></p>
       </div>
     </section>
 
     <!-- Manifeste -->
     <section class="section wrap" id="manifeste" aria-label="L'artiste">
       <div class="manifesto">
-        <div class="manifesto__aside"><span class="eyebrow" data-reveal>L'artiste</span></div>
+        <div class="manifesto__aside"><span class="eyebrow" data-reveal><!--@accueil.manifeste_surtitre-->L'artiste<!--/@accueil.manifeste_surtitre--></span></div>
         <div>
-          <p class="manifesto__text scrub" data-scrub>Toutes ses expériences, ses rêves et ses émotions, Valérie Bourimoff laisse son subconscient les interpréter. En cela, elle sublime en un <em>champ de couleurs</em>, de riches espaces imaginaires.</p>
-          <div class="manifesto__more" data-reveal><a class="link-arrow" href="biographie.html">Découvrir son parcours <span class="arrow" aria-hidden="true">→</span></a></div>
+          <p class="manifesto__text scrub" data-scrub><!--@accueil.manifeste-->Toutes ses expériences, ses rêves et ses émotions, Valérie Bourimoff laisse son subconscient les interpréter. En cela, elle sublime en un <em>champ de couleurs</em>, de riches espaces imaginaires.<!--/@accueil.manifeste--></p>
+          <div class="manifesto__more" data-reveal><a class="link-arrow" href="biographie.html"><!--@accueil.manifeste_lien-->Découvrir son parcours<!--/@accueil.manifeste_lien--> <span class="arrow" aria-hidden="true">→</span></a></div>
         </div>
       </div>
     </section>
@@ -123,7 +121,7 @@
         <div class="hs__head">
           <div>
             <span class="eyebrow">Sélection</span>
-            <h2 class="h2 split" id="sel-title" data-split>Œuvres <em>choisies</em></h2>
+            <h2 class="h2 split" id="sel-title" data-split><!--@accueil.selection_titre-->Œuvres <em>choisies</em><!--/@accueil.selection_titre--></h2>
           </div>
           <div class="hs__progress" aria-hidden="true"><span></span></div>
         </div>
@@ -138,9 +136,9 @@
       <div class="section-head">
         <div>
           <span class="eyebrow">Parcours</span>
-          <h2 class="h2 split" id="chap-title" data-split>Les <em>chapitres</em></h2>
+          <h2 class="h2 split" id="chap-title" data-split><!--@accueil.chapitres_titre-->Les <em>chapitres</em><!--/@accueil.chapitres_titre--></h2>
         </div>
-        <p data-reveal>De <!--@annee-debut-->2003<!--/@annee-debut--> à <!--@annee-fin-->2020<!--/@annee-fin-->, chaque période ouvre un nouveau chapitre&nbsp;: une recherche, une matière, une émotion.</p>
+        <p data-reveal>De <!--@annee-debut-->2003<!--/@annee-debut--> à <!--@annee-fin-->2020<!--/@annee-fin-->, <!--@accueil.chapitres_texte-->chaque période ouvre un nouveau chapitre&nbsp;: une recherche, une matière, une émotion.<!--/@accueil.chapitres_texte--></p>
       </div>
       <ol class="chapters" data-chapters>
         <!--@chapitres--><li><a href="oeuvres.html#chapitre-2020" data-dark data-preview="assets/img/oeuvres/m/changes.webp"><img class="chapters__thumb" src="assets/img/oeuvres/m/changes.webp" alt="" loading="lazy"><span class="chapters__year">2020</span><span class="chapters__title">De retour</span><span class="chapters__count">13 œuvres</span><span class="chapters__arrow" aria-hidden="true">→</span></a></li>
@@ -160,19 +158,19 @@
     <section class="section wrap" aria-labelledby="studio-title">
       <div class="studio">
         <div class="studio__media">
-          <div class="studio__frame" data-reveal="clip"><div class="px" data-parallax="0.08"><img src="assets/img/site/atelier.webp" width="768" height="1024" alt="L'atelier de Valérie Bourimoff" loading="lazy"></div></div>
+          <div class="studio__frame" data-reveal="clip"><div class="px" data-parallax="0.08"><!--@image.atelier--><img src="assets/img/site/atelier.webp" width="768" height="1024" alt="L'atelier de Valérie Bourimoff" loading="lazy"><!--/@image.atelier--></div></div>
           <svg class="studio__badge" viewBox="0 0 120 120" aria-hidden="true">
             <defs><path id="badge-circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
             <text><textPath href="#badge-circle" textLength="286" lengthAdjust="spacing">PAR LÀ OÙ TOUT COMMENCE · PEINTURE · </textPath></text>
           </svg>
         </div>
         <div class="studio__text">
-          <span class="eyebrow">L'atelier</span>
-          <h2 class="h2 split" id="studio-title" data-split>Une vie <em>intérieure</em></h2>
-          <p data-reveal>Ses œuvres traduisent le lointain et la création d'un lieu originel idéal, propre à son état d'être.</p>
-          <p data-reveal>C'est l'expression consciente, spontanée et instinctive d'une vie intérieure riche et profonde qui l'a fait voyager autant que son public.</p>
-          <blockquote class="studio__quote" data-reveal>Sa palette de couleurs reflète avec simplicité une âme pour laquelle la lumière est source de vie.</blockquote>
-          <div data-reveal><a class="link-arrow" href="biographie.html">Biographie &amp; expositions <span class="arrow" aria-hidden="true">→</span></a></div>
+          <span class="eyebrow"><!--@accueil.atelier_surtitre-->L'atelier<!--/@accueil.atelier_surtitre--></span>
+          <h2 class="h2 split" id="studio-title" data-split><!--@accueil.atelier_titre-->Une vie <em>intérieure</em><!--/@accueil.atelier_titre--></h2>
+          <p data-reveal><!--@accueil.atelier_texte1-->Ses œuvres traduisent le lointain et la création d'un lieu originel idéal, propre à son état d'être.<!--/@accueil.atelier_texte1--></p>
+          <p data-reveal><!--@accueil.atelier_texte2-->C'est l'expression consciente, spontanée et instinctive d'une vie intérieure riche et profonde qui l'a fait voyager autant que son public.<!--/@accueil.atelier_texte2--></p>
+          <blockquote class="studio__quote" data-reveal><!--@accueil.atelier_citation-->Sa palette de couleurs reflète avec simplicité une âme pour laquelle la lumière est source de vie.<!--/@accueil.atelier_citation--></blockquote>
+          <div data-reveal><a class="link-arrow" href="biographie.html"><!--@accueil.atelier_lien-->Biographie &amp; expositions<!--/@accueil.atelier_lien--> <span class="arrow" aria-hidden="true">→</span></a></div>
         </div>
       </div>
     </section>
@@ -192,15 +190,15 @@
     <section class="section cta wrap" aria-labelledby="cta-title">
       <div class="pigments" aria-hidden="true"><span></span><span></span><span></span></div>
       <span class="eyebrow">Contact</span>
-      <h2 class="h2 split" id="cta-title" data-split style="margin-top:22px">Une œuvre <em>vous touche&nbsp;?</em></h2>
-      <p data-reveal>Pour une acquisition, une exposition ou simplement pour échanger autour d'une toile, écrivez à l'artiste.</p>
+      <h2 class="h2 split" id="cta-title" data-split style="margin-top:22px"><!--@accueil.contact_titre-->Une œuvre <em>vous touche&nbsp;?</em><!--/@accueil.contact_titre--></h2>
+      <p data-reveal><!--@accueil.contact_texte-->Pour une acquisition, une exposition ou simplement pour échanger autour d'une toile, écrivez à l'artiste.<!--/@accueil.contact_texte--></p>
       <a class="btn-round" href="contact.html" data-magnetic>Prendre<br>contact</a>
     </section>
   </main>
 
   <footer class="site-footer" data-dark>
     <div class="footer__top">
-      <p class="footer__quote">Par là où tout commence…<em>This is where it all starts from…</em></p>
+      <p class="footer__quote"><!--@site.devise-->Par là où tout commence…<!--/@site.devise--><em><!--@site.devise_en-->This is where it all starts from…<!--/@site.devise_en--></em></p>
       <a class="btn-round btn-round--light" href="contact.html" data-magnetic>Écrire à<br>l'artiste</a>
     </div>
     <div class="footer__grid">
@@ -209,7 +207,6 @@
         <ul>
           <li><a href="index.html">Accueil</a></li>
           <li><a href="oeuvres.html">Œuvres</a></li>
-          <li><a href="oeuvres.html#chapitre-dessins">Dessins</a></li>
           <li><a href="biographie.html">Biographie</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -225,11 +222,11 @@
       </div>
       <div>
         <h3>Droits</h3>
-        <p>© Photos non libres de droits. Adaptation, reproduction et diffusion strictement interdites du contenu du site sans l'accord écrit préalable de Valérie Bourimoff.</p>
+        <p><!--@site.droits-->© Photos non libres de droits. Adaptation, reproduction et diffusion strictement interdites du contenu du site sans l'accord écrit préalable de Valérie Bourimoff.<!--/@site.droits--></p>
       </div>
     </div>
     <div class="footer__name" aria-hidden="true">Bourimoff</div>
-    <div class="footer__bottom"><span>© <span data-year>2026</span> Valérie Bourimoff</span><span>Peinture · Aquarelle · Dessin</span></div>
+    <div class="footer__bottom"><span>© <span data-year>2026</span> Valérie Bourimoff</span><span><!--@site.disciplines-->Peinture · Aquarelle · Dessin<!--/@site.disciplines--></span></div>
   </footer>
 
   <div class="curtain" aria-hidden="true"></div>

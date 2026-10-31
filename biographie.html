@@ -34,7 +34,6 @@
     <nav class="nav" aria-label="Navigation principale">
       <ul>
         <li><a href="oeuvres.html"><span class="roll" data-text="Œuvres"><span>Œuvres</span></span></a></li>
-        <li><a href="oeuvres.html#chapitre-dessins"><span class="roll" data-text="Dessins"><span>Dessins</span></span></a></li>
         <li><a href="biographie.html" aria-current="page"><span class="roll" data-text="Biographie"><span>Biographie</span></span></a></li>
         <li><a href="contact.html"><span class="roll" data-text="Contact"><span>Contact</span></span></a></li>
       </ul>
@@ -46,11 +45,10 @@
     <ul class="menu__links">
       <li><a href="index.html"><small>01</small>Accueil</a></li>
       <li><a href="oeuvres.html"><small>02</small>Œuvres</a></li>
-      <li><a href="oeuvres.html#chapitre-dessins"><small>03</small>Dessins</a></li>
-      <li><a href="biographie.html" aria-current="page"><small>04</small>Biographie</a></li>
-      <li><a href="contact.html"><small>05</small>Contact</a></li>
+      <li><a href="biographie.html" aria-current="page"><small>03</small>Biographie</a></li>
+      <li><a href="contact.html"><small>04</small>Contact</a></li>
     </ul>
-    <div class="menu__foot"><p>Par là où tout commence…</p><span>Peinture · Aquarelle · Dessin</span></div>
+    <div class="menu__foot"><p><!--@site.devise-->Par là où tout commence…<!--/@site.devise--></p><span><!--@site.disciplines-->Peinture · Aquarelle · Dessin<!--/@site.disciplines--></span></div>
   </div>
 
   <main id="contenu">
@@ -61,11 +59,11 @@
           <span class="eyebrow" data-reveal>Biographie</span>
           <h1 class="page-hero__title split" data-split style="margin-top:24px">Valérie <em>Bourimoff</em></h1>
           <div class="page-hero__row">
-            <p data-reveal>Peintre. Paysages imaginaires, abstractions, aquarelles et dessins&nbsp;— une œuvre guidée par la couleur et la lumière.</p>
+            <p data-reveal><!--@biographie.intro-->Peintre. Paysages imaginaires, abstractions, aquarelles et dessins&nbsp;— une œuvre guidée par la couleur et la lumière.<!--/@biographie.intro--></p>
           </div>
         </div>
         <figure class="bio-hero__portrait">
-          <div class="frame" data-reveal="clip"><img src="assets/img/site/portrait.webp" width="800" height="764" alt="Portrait de Valérie Bourimoff"></div>
+          <div class="frame" data-reveal="clip"><!--@image.portrait--><img src="assets/img/site/portrait.webp" width="800" height="764" alt="Portrait de Valérie Bourimoff"><!--/@image.portrait--></div>
         </figure>
       </div>
     </section>
@@ -98,7 +96,7 @@
 
     <section class="wrap" aria-label="En chiffres">
       <div class="stats">
-        <div data-reveal><b>2003</b><span>Premières abstractions</span></div>
+        <div data-reveal><b><!--@biographie.chiffre_nombre-->2003<!--/@biographie.chiffre_nombre--></b><span><!--@biographie.chiffre_texte-->Premières abstractions<!--/@biographie.chiffre_texte--></span></div>
         <div data-reveal style="--d:.1s"><b><!--@nb-expositions-->26<!--/@nb-expositions--></b><span>Expositions &amp; salons</span></div>
         <div data-reveal style="--d:.2s"><b><!--@total-->104<!--/@total--></b><span>Œuvres en ligne</span></div>
       </div>
@@ -120,7 +118,7 @@
       </div>
 
       <div class="cv">
-        <div class="cv__title"><span class="eyebrow">Depuis 2004</span><h2 class="h2">Expositions</h2></div>
+        <div class="cv__title"><span class="eyebrow"><!--@biographie.expositions_surtitre-->Depuis 2004<!--/@biographie.expositions_surtitre--></span><h2 class="h2">Expositions</h2></div>
         <div class="expos">
           <!--@expositions--><div class="expo-year" data-reveal><h3>2019 <em>— 2025</em></h3><ul>
             <li><strong>Portes Ouvertes d'Ateliers</strong><span>Ville de Boulogne-Billancourt</span></li>
@@ -175,12 +173,12 @@
         </div>
       </div>
 
-      <p class="notice" data-reveal>© Photos non libres de droits. Adaptation, reproduction et diffusion strictement interdites du contenu du site sans l'accord écrit préalable de Valérie Bourimoff.</p>
+      <p class="notice" data-reveal><!--@site.droits-->© Photos non libres de droits. Adaptation, reproduction et diffusion strictement interdites du contenu du site sans l'accord écrit préalable de Valérie Bourimoff.<!--/@site.droits--></p>
     </section>
 
     <section class="section cta wrap" style="background:var(--paper-deep)" aria-labelledby="cta-title">
       <span class="eyebrow">Œuvres</span>
-      <h2 class="h2 split" id="cta-title" data-split style="margin-top:22px">Entrer dans <em>l'univers</em></h2>
+      <h2 class="h2 split" id="cta-title" data-split style="margin-top:22px"><!--@biographie.oeuvres_titre-->Entrer dans <em>l'univers</em><!--/@biographie.oeuvres_titre--></h2>
       <p data-reveal><!--@total-texte-->Plus de cent œuvres<!--/@total-texte-->, des abstractions verticales de <!--@annee-debut-->2003<!--/@annee-debut--> aux toiles les plus récentes.</p>
       <a class="btn-round" href="oeuvres.html" data-magnetic>Voir les<br>œuvres</a>
     </section>
@@ -188,7 +186,7 @@
 
   <footer class="site-footer" data-dark>
     <div class="footer__top">
-      <p class="footer__quote">Par là où tout commence…<em>This is where it all starts from…</em></p>
+      <p class="footer__quote"><!--@site.devise-->Par là où tout commence…<!--/@site.devise--><em><!--@site.devise_en-->This is where it all starts from…<!--/@site.devise_en--></em></p>
       <a class="btn-round btn-round--light" href="contact.html" data-magnetic>Écrire à<br>l'artiste</a>
     </div>
     <div class="footer__grid">
@@ -197,7 +195,6 @@
         <ul>
           <li><a href="index.html">Accueil</a></li>
           <li><a href="oeuvres.html">Œuvres</a></li>
-          <li><a href="oeuvres.html#chapitre-dessins">Dessins</a></li>
           <li><a href="biographie.html">Biographie</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -213,11 +210,11 @@
       </div>
       <div>
         <h3>Droits</h3>
-        <p>© Photos non libres de droits. Adaptation, reproduction et diffusion strictement interdites du contenu du site sans l'accord écrit préalable de Valérie Bourimoff.</p>
+        <p><!--@site.droits-->© Photos non libres de droits. Adaptation, reproduction et diffusion strictement interdites du contenu du site sans l'accord écrit préalable de Valérie Bourimoff.<!--/@site.droits--></p>
       </div>
     </div>
     <div class="footer__name" aria-hidden="true">Bourimoff</div>
-    <div class="footer__bottom"><span>© <span data-year>2026</span> Valérie Bourimoff</span><span>Peinture · Aquarelle · Dessin</span></div>
+    <div class="footer__bottom"><span>© <span data-year>2026</span> Valérie Bourimoff</span><span><!--@site.disciplines-->Peinture · Aquarelle · Dessin<!--/@site.disciplines--></span></div>
   </footer>
 
   <div class="curtain" aria-hidden="true"></div>

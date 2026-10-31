@@ -1,0 +1,49 @@
+{
+  "accueil": {
+    "manifeste_surtitre": "L'artiste",
+    "manifeste": "Toutes ses expériences, ses rêves et ses émotions, Valérie Bourimoff laisse son subconscient les interpréter. En cela, elle sublime en un *champ de couleurs*, de riches espaces imaginaires.",
+    "manifeste_lien": "Découvrir son parcours",
+    "selection_titre": "Œuvres *choisies*",
+    "chapitres_titre": "Les *chapitres*",
+    "chapitres_texte": "chaque période ouvre un nouveau chapitre : une recherche, une matière, une émotion.",
+    "atelier_surtitre": "L'atelier",
+    "atelier_titre": "Une vie *intérieure*",
+    "atelier_texte1": "Ses œuvres traduisent le lointain et la création d'un lieu originel idéal, propre à son état d'être.",
+    "atelier_texte2": "C'est l'expression consciente, spontanée et instinctive d'une vie intérieure riche et profonde qui l'a fait voyager autant que son public.",
+    "atelier_citation": "Sa palette de couleurs reflète avec simplicité une âme pour laquelle la lumière est source de vie.",
+    "atelier_lien": "Biographie & expositions",
+    "lieux_titre": "Expositions & salons depuis 2004",
+    "contact_titre": "Une œuvre *vous touche ?*",
+    "contact_texte": "Pour une acquisition, une exposition ou simplement pour échanger autour d'une toile, écrivez à l'artiste."
+  },
+  "oeuvres": {
+    "titre": "Les *œuvres*",
+    "intro": "Acryliques, aquarelles, techniques mixtes et dessins au fusain : l'ensemble des œuvres, chapitre par chapitre. Cliquez sur une œuvre pour l'admirer en grand.",
+    "contact_titre": "Une œuvre *vous touche ?*",
+    "contact_texte": "Chaque œuvre peut faire l'objet d'une demande d'information : ouvrez-la, puis cliquez sur « Demander des informations »."
+  },
+  "biographie": {
+    "intro": "Peintre. Paysages imaginaires, abstractions, aquarelles et dessins — une œuvre guidée par la couleur et la lumière.",
+    "chiffre_nombre": "2003",
+    "chiffre_texte": "Premières abstractions",
+    "expositions_surtitre": "Depuis 2004",
+    "oeuvres_titre": "Entrer dans *l'univers*"
+  },
+  "contact": {
+    "titre": "Écrire à *l'artiste*",
+    "intro": "Une toile vous a touché, vous souhaitez l'acquérir, l'exposer ou simplement en savoir plus ?",
+    "texte": "Laissez un message : Valérie Bourimoff vous répondra personnellement.",
+    "sujet1_titre": "Acquisitions",
+    "sujet1_texte": "Renseignements sur les œuvres disponibles",
+    "sujet2_titre": "Expositions",
+    "sujet2_texte": "Galeries, salons, collaborations",
+    "sujet3_titre": "Rencontres",
+    "sujet3_texte": "Portes Ouvertes d'Ateliers de Boulogne-Billancourt"
+  },
+  "site": {
+    "devise": "Par là où tout commence…",
+    "devise_en": "This is where it all starts from…",
+    "disciplines": "Peinture · Aquarelle · Dessin",
+    "droits": "© Photos non libres de droits. Adaptation, reproduction et diffusion strictement interdites du contenu du site sans l'accord écrit préalable de Valérie Bourimoff."
+  }
+}

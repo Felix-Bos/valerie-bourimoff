@@ -73,6 +73,8 @@ body::after {
 }
 
 img { display: block; max-width: 100%; height: auto; }
+/* Images non enregistrables par appui long ou glisser-déposer (voir initImageGuard) */
+img { -webkit-user-drag: none; -webkit-touch-callout: none; user-select: none; -webkit-user-select: none; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
@@ -407,7 +409,6 @@ a:hover > .roll::after { transform: translateY(-100%); }
 .menu.is-open .menu__links li:nth-child(2) a { transition-delay: 0.06s; }
 .menu.is-open .menu__links li:nth-child(3) a { transition-delay: 0.12s; }
 .menu.is-open .menu__links li:nth-child(4) a { transition-delay: 0.18s; }
-.menu.is-open .menu__links li:nth-child(5) a { transition-delay: 0.24s; }
 .menu__foot {
   display: flex;
   justify-content: space-between;

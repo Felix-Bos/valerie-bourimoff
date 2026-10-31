@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Construit le site publié dans _site/ à partir des contenus modifiables.
 
-Les textes (content/*.json) et les photos (medias/oeuvres/) se modifient depuis
-Pages CMS. Ce script :
+Les textes (content/*.json) et les photos (medias/) se modifient depuis
+l'administration du site (admin/). Ce script :
   - redimensionne chaque photo en WebP : 2000 px (visionneuse) et 900 px (grilles) ;
   - génère assets/js/data.js, le catalogue lu par le JavaScript du site ;
-  - remplit les zones <!--@nom-->…<!--/@nom--> des pages HTML.
+  - remplit les zones <!--@nom-->…<!--/@nom--> des pages HTML. Une zone <!--@page.cle-->
+    reçoit le texte content/textes.json[page][cle] et garde son contenu actuel s'il manque.
 
 Usage : python3 scripts/build.py
         python3 -m http.server 8765 -d _site
@@ -15,6 +16,7 @@ import hashlib
 import html
 import io
 import json
+import os
 import re
 import shutil
 import sys
@@ -39,7 +41,8 @@ IMG_VERSION = '1'  # à changer si le traitement des images change, pour tout r�
 CATS = ('peinture', 'aquarelle', 'dessin')
 NBSP = ' '
 STAMP = re.compile(r'^(.*?)-?(\d{14})$')  # fiches créées dans Pages CMS : <titre>-AAAAMMJJhhmmss
-MARKER = re.compile(r'<!--@([\w-]+)-->.*?<!--/@\1-->', re.S)
+MARKER = re.compile(r'<!--@([\w.-]+)-->(.*?)<!--/@\1-->', re.S)
+SITE_IMAGES = {'atelier', 'portrait'}  # content/images.json → assets/img/site/<nom>.webp
 
 Image.MAX_IMAGE_PIXELS = 400_000_000
 SRGB = ImageCms.createProfile('sRGB')
@@ -85,7 +88,7 @@ def slugify(s):
 
 
 def stem_of(ref):
-    """'content/oeuvres/samba.json' → 'samba' (valeur d'un champ « référence » de Pages CMS)."""
+    """'content/oeuvres/samba.json' → 'samba' (référence d'une fiche vers une autre)."""
     ref = clean(ref)
     return Path(ref).stem if ref else ''
 
@@ -98,6 +101,11 @@ def typo(s):
 
 def e(s):
     return html.escape(s or '', quote=False).replace('"', '&quot;')
+
+
+def inline(s):
+    """Texte d'une ligne saisi dans l'administration : *mot* s'écrit en italique."""
+    return re.sub(r'\*([^*]+)\*', r'<em>\1</em>', e(typo(clean(s))))
 
 
 def plural(n, word):
@@ -143,8 +151,8 @@ def render_image(data, dest):
     return dict(w=large.width, h=large.height, mw=medium.width, mh=medium.height, color=f'#{r:02x}{g:02x}{b:02x}')
 
 
-def process_image(src, wid):
-    """Écrit les deux tailles de l'image dans _site (avec un cache par contenu de fichier)."""
+def convert(src):
+    """Dossier contenant les deux tailles de l'image (cache par contenu de fichier)."""
     data = src.read_bytes()
     cached = CACHE / hashlib.sha1(IMG_VERSION.encode() + data).hexdigest()
     if not (cached / 'meta.json').is_file():
@@ -155,9 +163,41 @@ def process_image(src, wid):
         (tmp / 'meta.json').write_text(json.dumps(meta))
         shutil.rmtree(cached, ignore_errors=True)
         tmp.rename(cached)
+    return cached
+
+
+def process_image(src, wid):
+    """Écrit les deux tailles de l'image dans _site."""
+    cached = convert(src)
     shutil.copyfile(cached / 'l.webp', OUT / 'assets/img/oeuvres' / f'{wid}.webp')
     shutil.copyfile(cached / 'm.webp', OUT / 'assets/img/oeuvres/m' / f'{wid}.webp')
     return json.loads((cached / 'meta.json').read_text())
+
+
+def site_images():
+    """Photos fixes du site (atelier, portrait), écrites dans assets/img/site/ : [(nom, photo, meta)]."""
+    out = []
+    for name, image in (read_json(CONTENT / 'images.json', {}) or {}).items():
+        image = clean(image).lstrip('/')
+        if name not in SITE_IMAGES or not image:
+            continue
+        try:
+            cached = convert(ROOT / image)
+        except Exception as err:
+            warn(f'la photo {image} ({name}) ne peut pas être lue ({err})')
+            continue
+        shutil.copyfile(cached / 'l.webp', OUT / 'assets/img/site' / f'{name}.webp')
+        out.append((name, image, json.loads((cached / 'meta.json').read_text())))
+    return out
+
+
+def image_tag(name, meta):
+    """Met à jour la balise <img> d'une zone <!--@image.nom--> (adresse et dimensions)."""
+    def tag(default):
+        default = re.sub(r'src="[^"]*"', f'src="assets/img/site/{name}.webp"', default)
+        default = re.sub(r'width="\d+"', f'width="{meta["w"]}"', default)
+        return re.sub(r'height="\d+"', f'height="{meta["h"]}"', default)
+    return tag
 
 
 # ---------------------------------------------------------------- contenus
@@ -234,7 +274,7 @@ def load_works(chapters):
         works.append(dict(
             id=wid, title=typo(title), medium=medium or None, size=clean(d.get('dimensions')) or None,
             year=year or None, chapter=chapter, cat=cat, w=meta['w'], h=meta['h'], color=meta['color'],
-            m=(meta['mw'], meta['mh']), sort=(order is None, order or 0, stamp, wid)))
+            m=(meta['mw'], meta['mh']), image=image, sort=(order is None, order or 0, stamp, wid)))
     return works, by_file
 
 
@@ -307,13 +347,13 @@ def render_recent(chapters):
         f'<li><a href="oeuvres.html#chapitre-{ch["id"]}">{e(ch["label"])} — {e(ch["title"])}</a></li>' for ch in dated)
 
 
-def render_places(places):
+def render_places(places, title):
     if not places:
         return ''
     once = ''.join(f'<span>{e(p)}</span><b>✦</b>' for p in places)
     twice = ''.join(f'<span aria-hidden="true">{e(p)}</span><b aria-hidden="true">✦</b>' for p in places)
     return ('<section aria-label="Lieux d\'exposition">\n'
-            '      <div class="wrap" style="margin-bottom:22px"><span class="eyebrow">Expositions &amp; salons depuis 2004</span></div>\n'
+            f'      <div class="wrap" style="margin-bottom:22px"><span class="eyebrow">{title}</span></div>\n'
             '      <div class="marquee">\n'
             '        <div class="marquee__track">\n'
             f'          {once}\n'
@@ -366,9 +406,13 @@ def render_exhibitions(items):
 
 def fill(page, values):
     def sub(m):
-        if m.group(1) not in values:
-            raise KeyError(f'{page} : zone <!--@{m.group(1)}--> inconnue de scripts/build.py')
-        return values[m.group(1)]
+        name, default = m.groups()
+        if name in values:
+            value = values[name]
+            return value(default) if callable(value) else value
+        if '.' in name:  # texte ou photo absent de content/ : la page garde son contenu actuel
+            return default
+        raise KeyError(f'{page} : zone <!--@{name}--> inconnue de scripts/build.py')
     return MARKER.sub(sub, (ROOT / page).read_text(encoding='utf-8'))
 
 
@@ -410,8 +454,15 @@ def main():
         '/* Généré par scripts/build.py à partir de content/ : ne pas modifier à la main. */\n'
         f'window.VB_DATA = {json.dumps(data, ensure_ascii=False, separators=(",", ":"))};\n', encoding='utf-8')
 
+    texts = {f'{page}.{key}': inline(value)
+             for page, group in (read_json(CONTENT / 'textes.json', {}) or {}).items() if isinstance(group, dict)
+             for key, value in group.items()}
+    images = site_images()
+
     first, last = year_span(works)
     values = {
+        **texts,
+        **{f'image.{name}': image_tag(name, meta) for name, _, meta in images},
         'total': str(len(works)),
         'total-texte': total_text(len(works)),
         'annee-debut': first,
@@ -419,7 +470,8 @@ def main():
         'ouverture': render_hero([by_id[wid] for wid in hero]),
         'chapitres': render_chapters(chapters, by_id),
         'chapitres-recents': render_recent(chapters),
-        'lieux': render_places([clean(p) for p in home.get('lieux') or [] if clean(p)]),
+        'lieux': render_places([clean(p) for p in home.get('lieux') or [] if clean(p)],
+                               texts.get('accueil.lieux_titre', 'Expositions &amp; salons')),
         'demarche-fr': render_text(bio.get('demarche')),
         'demarche-en': render_text(bio.get('demarche_en')),
         'citation': e(typo(clean(bio.get('citation')))),
@@ -429,6 +481,14 @@ def main():
     }
     for page in PAGES:
         (OUT / page).write_text(fill(page, values), encoding='utf-8')
+
+    # Administration : ses fichiers, les vignettes des photos déjà publiées et la version en ligne.
+    shutil.copytree(ROOT / 'admin', OUT / 'admin', ignore=shutil.ignore_patterns('.DS_Store'))
+    version = lambda image: hashlib.sha1(image.encode()).hexdigest()[:8]
+    thumbs = {w['image']: f'{thumb(w["id"])}?v={version(w["image"])}' for w in works}
+    thumbs.update({image: f'assets/img/site/{name}.webp?v={version(image)}' for name, image, _ in images})
+    (OUT / 'admin/vignettes.json').write_text(json.dumps(thumbs, ensure_ascii=False), encoding='utf-8')
+    (OUT / 'version.txt').write_text(os.environ.get('CF_PAGES_COMMIT_SHA', ''), encoding='utf-8')
 
     print(f'{len(works)} œuvres, {len(chapters)} chapitres → {OUT.relative_to(ROOT)}/')
 

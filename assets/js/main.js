@@ -6,7 +6,7 @@
 
   /* ---------- Configuration ---------- */
 
-  // L'adresse e-mail de l'artiste se règle dans Pages CMS (Réglages) : le formulaire
+  // L'adresse e-mail de l'artiste se règle dans l'administration (Contact) : le formulaire
   // ouvre alors la messagerie du visiteur, pré-remplie.
   var CONFIG = {
     // Optionnel : URL d'un service d'envoi de formulaire (ex. https://formspree.io/f/xxxxxx).
@@ -765,10 +765,21 @@
     });
   }
 
+  /* ---------- Protection des images ---------- */
+
+  // Pas de clic droit, de glisser-déposer ni d'appui long pour enregistrer les photos.
+  // Dissuasif seulement : une capture d'écran reste toujours possible.
+  function initImageGuard() {
+    var guarded = function (el) { return el && el.closest && el.closest('img, picture, .frame, [class*="__frame"], [class*="__photo"], .lb'); };
+    document.addEventListener('contextmenu', function (e) { if (guarded(e.target)) e.preventDefault(); });
+    document.addEventListener('dragstart', function (e) { if (e.target && e.target.tagName === 'IMG') e.preventDefault(); });
+  }
+
   /* ---------- Démarrage ---------- */
 
   $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
+  initImageGuard();
   initTransitions();
   initHeader();
   initCursor();

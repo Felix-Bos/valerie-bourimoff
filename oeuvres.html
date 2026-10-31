@@ -34,7 +34,6 @@
     <nav class="nav" aria-label="Navigation principale">
       <ul>
         <li><a href="oeuvres.html" aria-current="page"><span class="roll" data-text="Œuvres"><span>Œuvres</span></span></a></li>
-        <li><a href="oeuvres.html#chapitre-dessins"><span class="roll" data-text="Dessins"><span>Dessins</span></span></a></li>
         <li><a href="biographie.html"><span class="roll" data-text="Biographie"><span>Biographie</span></span></a></li>
         <li><a href="contact.html"><span class="roll" data-text="Contact"><span>Contact</span></span></a></li>
       </ul>
@@ -46,20 +45,19 @@
     <ul class="menu__links">
       <li><a href="index.html"><small>01</small>Accueil</a></li>
       <li><a href="oeuvres.html" aria-current="page"><small>02</small>Œuvres</a></li>
-      <li><a href="oeuvres.html#chapitre-dessins"><small>03</small>Dessins</a></li>
-      <li><a href="biographie.html"><small>04</small>Biographie</a></li>
-      <li><a href="contact.html"><small>05</small>Contact</a></li>
+      <li><a href="biographie.html"><small>03</small>Biographie</a></li>
+      <li><a href="contact.html"><small>04</small>Contact</a></li>
     </ul>
-    <div class="menu__foot"><p>Par là où tout commence…</p><span>Peinture · Aquarelle · Dessin</span></div>
+    <div class="menu__foot"><p><!--@site.devise-->Par là où tout commence…<!--/@site.devise--></p><span><!--@site.disciplines-->Peinture · Aquarelle · Dessin<!--/@site.disciplines--></span></div>
   </div>
 
   <main id="contenu">
     <section class="page-hero">
       <div class="pigments" aria-hidden="true"><span></span><span></span><span></span></div>
       <span class="eyebrow" data-reveal>Catalogue</span>
-      <h1 class="page-hero__title split" data-split style="margin-top:24px">Les <em>œuvres</em></h1>
+      <h1 class="page-hero__title split" data-split style="margin-top:24px"><!--@oeuvres.titre-->Les <em>œuvres</em><!--/@oeuvres.titre--></h1>
       <div class="page-hero__row">
-        <p data-reveal>Acryliques, aquarelles, techniques mixtes et dessins au fusain&nbsp;: l'ensemble des œuvres, chapitre par chapitre. Cliquez sur une œuvre pour l'admirer en grand.</p>
+        <p data-reveal><!--@oeuvres.intro-->Acryliques, aquarelles, techniques mixtes et dessins au fusain&nbsp;: l'ensemble des œuvres, chapitre par chapitre. Cliquez sur une œuvre pour l'admirer en grand.<!--/@oeuvres.intro--></p>
         <p class="page-hero__stat" data-reveal><span data-total><!--@total-->104<!--/@total--></span> œuvres <em>· <!--@annee-debut-->2003<!--/@annee-debut--> — <!--@annee-fin-->2020<!--/@annee-fin--></em></p>
       </div>
     </section>
@@ -85,15 +83,15 @@
     <section class="section cta wrap" aria-labelledby="cta-title">
       <div class="pigments" aria-hidden="true"><span></span><span></span><span></span></div>
       <span class="eyebrow">Contact</span>
-      <h2 class="h2 split" id="cta-title" data-split style="margin-top:22px">Une œuvre <em>vous touche&nbsp;?</em></h2>
-      <p data-reveal>Chaque œuvre peut faire l'objet d'une demande d'information&nbsp;: ouvrez-la, puis cliquez sur «&nbsp;Demander des informations&nbsp;».</p>
+      <h2 class="h2 split" id="cta-title" data-split style="margin-top:22px"><!--@oeuvres.contact_titre-->Une œuvre <em>vous touche&nbsp;?</em><!--/@oeuvres.contact_titre--></h2>
+      <p data-reveal><!--@oeuvres.contact_texte-->Chaque œuvre peut faire l'objet d'une demande d'information&nbsp;: ouvrez-la, puis cliquez sur «&nbsp;Demander des informations&nbsp;».<!--/@oeuvres.contact_texte--></p>
       <a class="btn-round" href="contact.html" data-magnetic>Prendre<br>contact</a>
     </section>
   </main>
 
   <footer class="site-footer" data-dark>
     <div class="footer__top">
-      <p class="footer__quote">Par là où tout commence…<em>This is where it all starts from…</em></p>
+      <p class="footer__quote"><!--@site.devise-->Par là où tout commence…<!--/@site.devise--><em><!--@site.devise_en-->This is where it all starts from…<!--/@site.devise_en--></em></p>
       <a class="btn-round btn-round--light" href="contact.html" data-magnetic>Écrire à<br>l'artiste</a>
     </div>
     <div class="footer__grid">
@@ -102,7 +100,6 @@
         <ul>
           <li><a href="index.html">Accueil</a></li>
           <li><a href="oeuvres.html">Œuvres</a></li>
-          <li><a href="oeuvres.html#chapitre-dessins">Dessins</a></li>
           <li><a href="biographie.html">Biographie</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -118,11 +115,11 @@
       </div>
       <div>
         <h3>Droits</h3>
-        <p>© Photos non libres de droits. Adaptation, reproduction et diffusion strictement interdites du contenu du site sans l'accord écrit préalable de Valérie Bourimoff.</p>
+        <p><!--@site.droits-->© Photos non libres de droits. Adaptation, reproduction et diffusion strictement interdites du contenu du site sans l'accord écrit préalable de Valérie Bourimoff.<!--/@site.droits--></p>
       </div>
     </div>
     <div class="footer__name" aria-hidden="true">Bourimoff</div>
-    <div class="footer__bottom"><span>© <span data-year>2026</span> Valérie Bourimoff</span><span>Peinture · Aquarelle · Dessin</span></div>
+    <div class="footer__bottom"><span>© <span data-year>2026</span> Valérie Bourimoff</span><span><!--@site.disciplines-->Peinture · Aquarelle · Dessin<!--/@site.disciplines--></span></div>
   </footer>
 
   <div class="curtain" aria-hidden="true"></div>

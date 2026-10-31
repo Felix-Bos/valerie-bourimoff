@@ -4,3 +4,5 @@
 .idea/
 _site/
 .cache/
+.wrangler/
+node_modules/
