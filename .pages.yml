@@ -1,6 +1,6 @@
 # Interface d'administration du site : https://app.pagescms.org
-# Chaque enregistrement crée un commit sur main ; .github/workflows/publier.yml
-# reconstruit alors le site (scripts/build.py) et le publie en 1 à 2 minutes.
+# Chaque enregistrement crée un commit sur main ; Cloudflare Pages reconstruit
+# alors le site (scripts/build.py) et le publie en 1 à 2 minutes.
 
 media:
   - name: oeuvres
@@ -217,7 +217,7 @@ content:
             type: string
 
   - name: reglages
-    label: Réglages
+    label: Contact
     type: file
     path: content/reglages.json
     format: json

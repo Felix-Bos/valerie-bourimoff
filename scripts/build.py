@@ -15,7 +15,6 @@ import hashlib
 import html
 import io
 import json
-import os
 import re
 import shutil
 import sys
@@ -50,10 +49,7 @@ SRGB = ImageCms.createProfile('sRGB')
 
 def warn(msg):
     """Signale un contenu à corriger sans bloquer la publication du reste du site."""
-    if os.environ.get('GITHUB_ACTIONS'):
-        print(f'::warning::{msg}')
-    else:
-        print(f'Attention : {msg}', file=sys.stderr)
+    print(f'Attention : {msg}', file=sys.stderr)
 
 
 def read_json(path, default=None):
